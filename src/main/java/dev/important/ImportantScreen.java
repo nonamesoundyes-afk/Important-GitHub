@@ -75,7 +75,6 @@ public final class ImportantScreen extends Screen {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        renderBackground(context, mouseX, mouseY, delta);
         context.fill(0, 0, width, height, 0x99080B10);
         context.fill(panelX, panelY, panelX + panelW, panelY + panelH, ImportantClient.PANEL);
         context.fill(panelX, panelY, panelX + panelW, panelY + 2, colorAccent());
