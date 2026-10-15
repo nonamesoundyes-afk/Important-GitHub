@@ -44,13 +44,18 @@ public final class ImportantClient implements ClientModInitializer {
             y += 12;
         }
         if (ImportantConfig.enabled("Coordinates")) {
-            var p = client.player.getPos();
-            String coords = String.format(java.util.Locale.ROOT, "XYZ  %.1f  %.1f  %.1f", p.x, p.y, p.z);
+            String coords = String.format(
+                    java.util.Locale.ROOT,
+                    "XYZ  %.1f  %.1f  %.1f",
+                    client.player.getX(),
+                    client.player.getY(),
+                    client.player.getZ()
+);
             context.drawTextWithShadow(client.textRenderer, coords, x, y, TEXT);
             y += 12;
         }
         if (ImportantConfig.enabled("Direction")) {
-            context.drawTextWithShadow(client.textRenderer, "FACING  " + client.player.getHorizontalFacing().getName().toUpperCase(java.util.Locale.ROOT), x, y, MUTED);
+            context.drawTextWithShadow(client.textRenderer, "FACING  " + client.player.getHorizontalFacing().asString().toUpperCase(java.util.Locale.ROOT), x, y, MUTED);
         }
         if (ImportantConfig.enabled("Watermark")) {
             String label = "IMPORTANT";
